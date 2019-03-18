@@ -861,7 +861,8 @@ elements.svg.forEach((tagName) => {
     return (
       svgAttrs.has(attrKey) ||
       eventAttrs.has(attrKey) ||
-      attrKey.match(/^aria-/)
+      attrKey.match(/^aria-/) ||
+      attrKey.match(/^data-/)
     );
   };
 });
@@ -872,7 +873,8 @@ elements.html.forEach((tagName) => {
       eventAttrs.has(attrKey) ||
       (htmlElementSpecificAttrs[tagName] &&
         htmlElementSpecificAttrs[tagName].has(attrKey)) ||
-      attrKey.match(/^aria-/)
+      attrKey.match(/^aria-/) ||
+      attrKey.match(/^data-/)
     );
   };
 });

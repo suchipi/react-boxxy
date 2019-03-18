@@ -47,6 +47,13 @@ describe("Box", () => {
       );
     });
 
+    it("handles data attrs correctly", () => {
+      const { container } = render(<Box data-foo="yo" />);
+      expect(container.innerHTML).toMatchInlineSnapshot(
+        `"<div data-foo=\\"yo\\"></div>"`
+      );
+    });
+
     it("spreads props to both locations for custom elements", () => {
       const { container } = render(<Box tagName="x-foo" display="flex" />);
       expect(container.innerHTML).toMatchInlineSnapshot(
