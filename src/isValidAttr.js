@@ -1,5 +1,3 @@
-import React from "react";
-
 const htmlGlobalAttrs = new Set([
   "about",
   "acceptCharset",
@@ -860,7 +858,11 @@ const eventAttrs = new Set([
 const validAttrsByElement = {};
 elements.svg.forEach((tagName) => {
   validAttrsByElement[tagName] = (attrKey) => {
-    return svgAttrs.has(attrKey) || eventAttrs.has(attrKey);
+    return (
+      svgAttrs.has(attrKey) ||
+      eventAttrs.has(attrKey) ||
+      attrKey.match(/^aria-/)
+    );
   };
 });
 elements.html.forEach((tagName) => {
@@ -869,7 +871,8 @@ elements.html.forEach((tagName) => {
       htmlGlobalAttrs.has(attrKey) ||
       eventAttrs.has(attrKey) ||
       (htmlElementSpecificAttrs[tagName] &&
-        htmlElementSpecificAttrs[tagName].has(attrKey))
+        htmlElementSpecificAttrs[tagName].has(attrKey)) ||
+      attrKey.match(/^aria-/)
     );
   };
 });

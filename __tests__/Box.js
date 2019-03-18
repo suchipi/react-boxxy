@@ -39,6 +39,13 @@ describe("Box", () => {
         `"<div style=\\"display: flex; flex-direction: column;\\" class=\\"jeff\\" id=\\"bob\\"></div>"`
       );
     });
+
+    it("handles aria attrs correctly", () => {
+      const { container } = render(<Box role="button" aria-expanded />);
+      expect(container.innerHTML).toMatchInlineSnapshot(
+        `"<div role=\\"button\\" aria-expanded=\\"true\\"></div>"`
+      );
+    });
   });
 
   describe("event handler props", () => {

@@ -1,8 +1,10 @@
 import React from "react";
-import { render, cleanup, fireEvent } from "react-testing-library";
+import { render, cleanup } from "react-testing-library";
 import Box from "..";
 
 describe("Box.withProps", () => {
+  afterEach(cleanup);
+
   describe("object form", () => {
     it("adds those props to the box as defaults", () => {
       const Article = Box.withProps({
