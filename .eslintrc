@@ -1,0 +1,12 @@
+{
+  "extends": [
+    "unobtrusive",
+    "unobtrusive/import",
+    "unobtrusive/react",
+    "unobtrusive/flowtype"
+  ],
+  "env": {
+    "browser": true,
+    "es6": true
+  }
+}
