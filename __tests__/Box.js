@@ -46,6 +46,13 @@ describe("Box", () => {
         `"<div role=\\"button\\" aria-expanded=\\"true\\"></div>"`
       );
     });
+
+    it("spreads props to both locations for custom elements", () => {
+      const { container } = render(<Box tagName="x-foo" display="flex" />);
+      expect(container.innerHTML).toMatchInlineSnapshot(
+        `"<x-foo style=\\"display: flex;\\" display=\\"flex\\"></x-foo>"`
+      );
+    });
   });
 
   describe("event handler props", () => {

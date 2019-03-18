@@ -880,9 +880,9 @@ elements.html.forEach((tagName) => {
 const isValidAttr = (tagName, attrKey) => {
   const getIsValid = validAttrsByElement[tagName];
   if (!getIsValid) {
-    return false;
+    return "unknown";
   }
-  return getIsValid(attrKey);
+  return getIsValid(attrKey) ? "valid" : "invalid";
 };
 
 export default isValidAttr;

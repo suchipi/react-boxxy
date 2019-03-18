@@ -8,9 +8,13 @@ const Box = React.forwardRef(({ tagName = "div", ...props }, ref) => {
 
   Object.keys(props).forEach((propName) => {
     const propValue = props[propName];
-    if (isValidAttr(tagName, propName)) {
+    const validity = isValidAttr(tagName, propName);
+    if (validity === "valid") {
       attrs[propName] = propValue;
-    } else {
+    } else if (validity === "invalid") {
+      style[propName] = propValue;
+    } else if (validity === "unknown") {
+      attrs[propName] = propValue;
       style[propName] = propValue;
     }
   });
