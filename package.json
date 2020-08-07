@@ -18,6 +18,10 @@
     "react": ">=16.3",
     "react-dom": ">=16.3"
   },
+  "dependencies": {
+    "@types/react": "^16.9.44",
+    "@types/react-dom": "^16.9.8"
+  },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.3.4",
@@ -36,7 +40,7 @@
   },
   "scripts": {
     "test": "jest",
-    "build": "babel src --out-dir dist",
+    "build": "babel src --out-dir dist && cp src/index.d.ts dist",
     "build:watch": "babel --watch src --out-dir dist"
   }
 }
