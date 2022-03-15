@@ -60,6 +60,13 @@ describe("Box", () => {
         `"<x-foo style=\\"display: flex;\\" display=\\"flex\\"></x-foo>"`
       );
     });
+
+    it("img lazy loading works", () => {
+      const { container } = render(<Box tagName="img" loading="lazy" />);
+      expect(container.innerHTML).toMatchInlineSnapshot(
+        `"<img loading=\\"lazy\\">"`
+      );
+    });
   });
 
   describe("event handler props", () => {
