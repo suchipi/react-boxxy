@@ -134,8 +134,16 @@ const htmlElementSpecificAttrs = {
   head: new Set(["profile"]),
   hr: new Set(["size", "width"]),
   html: new Set(["manifest"]),
-  iframe: new Set(["height", "name", "sandbox", "scrolling", "src", "width"]),
-  img: new Set(["alt", "height", "name", "sizes", "src", "width"]),
+  iframe: new Set([
+    "height",
+    "name",
+    "sandbox",
+    "scrolling",
+    "src",
+    "width",
+    "loading",
+  ]),
+  img: new Set(["alt", "height", "name", "sizes", "src", "width", "loading"]),
   input: new Set([
     "accept",
     "alt",
