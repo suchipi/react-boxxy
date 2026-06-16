@@ -19,8 +19,8 @@
     "react-dom": ">=16.3"
   },
   "dependencies": {
-    "@types/react": "^17.0.40",
-    "@types/react-dom": "^17.0.13"
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3"
   },
   "devDependencies": {
     "@babel/cli": "^7.29.7",
@@ -28,15 +28,15 @@
     "@babel/eslint-parser": "^7.29.7",
     "@babel/preset-env": "^7.29.7",
     "@babel/preset-react": "^7.29.7",
-    "@testing-library/react": "^8.0.1",
+    "@testing-library/react": "^16.3.2",
     "eslint": "^8.11.0",
     "eslint-config-unobtrusive": "^1.2.5",
     "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-react": "^7.37.5",
     "jsdom": "^29.1.1",
     "prettier": "^3.8.4",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
     "vitest": "^4.1.9"
   },
   "scripts": {
