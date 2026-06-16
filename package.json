@@ -23,23 +23,24 @@
     "@types/react-dom": "^17.0.13"
   },
   "devDependencies": {
-    "@babel/cli": "^7.17.6",
-    "@babel/core": "^7.17.7",
-    "@babel/eslint-parser": "^7.17.0",
-    "@babel/preset-env": "^7.16.11",
-    "@babel/preset-react": "^7.16.7",
+    "@babel/cli": "^7.29.7",
+    "@babel/core": "^7.29.7",
+    "@babel/eslint-parser": "^7.29.7",
+    "@babel/preset-env": "^7.29.7",
+    "@babel/preset-react": "^7.29.7",
     "@testing-library/react": "^8.0.1",
     "eslint": "^8.11.0",
     "eslint-config-unobtrusive": "^1.2.5",
-    "eslint-plugin-import": "^2.25.4",
-    "eslint-plugin-react": "^7.29.4",
-    "jest": "^27.5.1",
-    "prettier": "^2.5.1",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-react": "^7.37.5",
+    "jsdom": "^29.1.1",
+    "prettier": "^3.8.4",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "vitest": "^4.1.9"
   },
   "scripts": {
-    "test": "jest",
+    "test": "vitest",
     "build": "babel src --out-dir dist && cp src/index.d.ts dist",
     "build:watch": "babel --watch src --out-dir dist"
   }

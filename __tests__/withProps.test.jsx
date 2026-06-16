@@ -1,3 +1,8 @@
+/**
+ * @vitest-environment jsdom
+ */
+
+import { describe, afterEach, it, expect } from "vitest";
 import React from "react";
 import { render, cleanup } from "@testing-library/react";
 import Box from "..";
@@ -15,7 +20,7 @@ describe("Box.withProps", () => {
       });
       const { container } = render(<Article />);
       expect(container.innerHTML).toMatchInlineSnapshot(
-        `"<article style=\\"display: flex; flex-direction: column; padding: 4px;\\"></article>"`
+        `"<article style="display: flex; flex-direction: column; padding: 4px;"></article>"`
       );
     });
 
@@ -28,7 +33,7 @@ describe("Box.withProps", () => {
       });
       const { container } = render(<Article padding="8px" />);
       expect(container.innerHTML).toMatchInlineSnapshot(
-        `"<article style=\\"display: flex; flex-direction: column; padding: 8px;\\"></article>"`
+        `"<article style="display: flex; flex-direction: column; padding: 8px;"></article>"`
       );
     });
 
@@ -37,7 +42,7 @@ describe("Box.withProps", () => {
       const Two = One.withProps({ color: "green" });
       const { container } = render(<Two />);
       expect(container.innerHTML).toMatchInlineSnapshot(
-        `"<div style=\\"background-color: red; color: green;\\"></div>"`
+        `"<div style="background-color: red; color: green;"></div>"`
       );
     });
   });
@@ -50,11 +55,11 @@ describe("Box.withProps", () => {
       }));
       const { container } = render(<Toggler />);
       expect(container.innerHTML).toMatchInlineSnapshot(
-        `"<div style=\\"background-color: red;\\"></div>"`
+        `"<div style="background-color: red;"></div>"`
       );
       const { container: container2 } = render(<Toggler on />);
       expect(container2.innerHTML).toMatchInlineSnapshot(
-        `"<div style=\\"background-color: green;\\"></div>"`
+        `"<div style="background-color: green;"></div>"`
       );
     });
 
@@ -72,7 +77,7 @@ describe("Box.withProps", () => {
       const Two = One.withProps((props) => ({ ...props, color: "green" }));
       const { container } = render(<Two />);
       expect(container.innerHTML).toMatchInlineSnapshot(
-        `"<div style=\\"color: green; background-color: red;\\"></div>"`
+        `"<div style="color: green; background-color: red;"></div>"`
       );
     });
   });

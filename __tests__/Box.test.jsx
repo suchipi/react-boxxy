@@ -1,3 +1,8 @@
+/**
+ * @vitest-environment jsdom
+ */
+
+import { describe, afterEach, it, expect, vi } from "vitest";
 import React from "react";
 import { render, cleanup, fireEvent } from "@testing-library/react";
 import Box from "..";
@@ -25,7 +30,7 @@ describe("Box", () => {
         </Box>
       );
       expect(container.innerHTML).toMatchInlineSnapshot(
-        `"<div><span id=\\"child\\"></span></div>"`
+        `"<div><span id="child"></span></div>"`
       );
     });
   });
@@ -36,42 +41,42 @@ describe("Box", () => {
         <Box display="flex" flexDirection="column" className="jeff" id="bob" />
       );
       expect(container.innerHTML).toMatchInlineSnapshot(
-        `"<div style=\\"display: flex; flex-direction: column;\\" class=\\"jeff\\" id=\\"bob\\"></div>"`
+        `"<div style="display: flex; flex-direction: column;" class="jeff" id="bob"></div>"`
       );
     });
 
     it("handles aria attrs correctly", () => {
       const { container } = render(<Box role="button" aria-expanded />);
       expect(container.innerHTML).toMatchInlineSnapshot(
-        `"<div role=\\"button\\" aria-expanded=\\"true\\"></div>"`
+        `"<div role="button" aria-expanded="true"></div>"`
       );
     });
 
     it("handles data attrs correctly", () => {
       const { container } = render(<Box data-foo="yo" />);
       expect(container.innerHTML).toMatchInlineSnapshot(
-        `"<div data-foo=\\"yo\\"></div>"`
+        `"<div data-foo="yo"></div>"`
       );
     });
 
     it("spreads props to both locations for custom elements", () => {
       const { container } = render(<Box tagName="x-foo" display="flex" />);
       expect(container.innerHTML).toMatchInlineSnapshot(
-        `"<x-foo style=\\"display: flex;\\" display=\\"flex\\"></x-foo>"`
+        `"<x-foo style="display: flex;" display="flex"></x-foo>"`
       );
     });
 
     it("img lazy loading works", () => {
       const { container } = render(<Box tagName="img" loading="lazy" />);
       expect(container.innerHTML).toMatchInlineSnapshot(
-        `"<img loading=\\"lazy\\">"`
+        `"<img loading="lazy">"`
       );
     });
   });
 
   describe("event handler props", () => {
     it("binds them properly", () => {
-      const clickHandler = jest.fn((event) => {
+      const clickHandler = vi.fn((event) => {
         expect(event).not.toBe(undefined);
       });
       const { getByText } = render(<Box onClick={clickHandler}>Click me</Box>);
@@ -83,7 +88,7 @@ describe("Box", () => {
   describe("refs", () => {
     it("forwards to the dom element", () => {
       let mounted = false;
-      const refHandler = jest.fn((el) => {
+      const refHandler = vi.fn((el) => {
         if (mounted) {
           expect(el).toBe(null);
         } else {
